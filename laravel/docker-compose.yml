@@ -13,6 +13,8 @@ services:
             MYSQL_PASSWORD: pepito
         ports:
             - 6033:3306
+        volumes: 
+            - dbdata:/var/lib/mysql
 
         
     phpmyadmin:
@@ -23,3 +25,8 @@ services:
         restart: always
         ports: 
             - 8080:80
+
+volumes: 
+    dbdata: 
+        driver: local
+
