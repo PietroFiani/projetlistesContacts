@@ -16,7 +16,7 @@ services:
         
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: phpmyadminV2
+        container_name: phpmyadmin
         environment: 
             - PMA_ARBITRARY=1
         restart: always
