@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ListeContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('welcome');
+ });
+
+
+//Route::get('/bonjour', 'ListeContactController@bonjour');
+
+
+Route::get('/bonjour', [ListeContactController::class, 'bonjour']);
+
+Route::get('/liste-contact', function () {
+    return view('about.liste');
 });
+
