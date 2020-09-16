@@ -69,3 +69,8 @@
 192.168.0.1 - - [16/Sep/2020:12:11:09 +0000] "GET / HTTP/1.1" 200 122 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
 192.168.0.1 - - [16/Sep/2020:12:11:23 +0000] "GET / HTTP/1.1" 200 124 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
 192.168.0.1 - - [16/Sep/2020:12:14:39 +0000] "GET / HTTP/1.1" 200 124 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+192.168.0.1 - - [16/Sep/2020:12:22:05 +0000] "GET / HTTP/1.1" 200 206 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+192.168.0.1 - - [16/Sep/2020:12:22:30 +0000] "GET / HTTP/1.1" 200 206 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+192.168.0.1 - - [16/Sep/2020:12:22:49 +0000] "GET / HTTP/1.1" 200 206 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+192.168.0.1 - - [16/Sep/2020:12:22:59 +0000] "GET / HTTP/1.1" 200 101 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+192.168.0.1 - - [16/Sep/2020:12:23:46 +0000] "GET / HTTP/1.1" 200 144 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"

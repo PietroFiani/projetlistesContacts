@@ -3,11 +3,11 @@
 
 $dbh = new PDO('mysql:host=mysql;dbname=testcontact', 'root', 'pepito');
 // utiliser la connexion ici
-$sth = $dbh->query('SELECT user_mail FROM users ORDER BY user_mail');
+$sth = $dbh->query('SELECT firstname, lastname, mail, phone FROM contacts ORDER BY lastname');
 
 while ($data=$sth->fetch()) 
 {   ?>
-    <h1>c bon (enfin presque)<?php echo $data['user_mail']?></h1>
+    <h1>c bon (enfin presque)<?php echo $data['firstname']?></h1>
     <?php
 }
 
