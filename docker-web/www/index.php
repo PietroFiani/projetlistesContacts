@@ -1,4 +1,4 @@
-	<head>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -46,7 +46,29 @@
       <div class="modal-body">
 
 
-      	<form action="index.php" method="post">
+      	<form method="post" action="controler.php">
+          <?php 
+            if(!empty($error_message)){
+            ?>
+            <div class="alert alert-danger">
+              <strong>Error!</strong> <?= $error_message ?>
+            </div>
+
+            <?php
+            }
+            ?>
+
+            <?php 
+            // Display Success message
+            if(!empty($success_message)){
+            ?>
+            <div class="alert alert-success">
+              <strong>Success!</strong> <?= $success_message ?>
+            </div>
+
+            <?php
+            }
+            ?>
 		  <div class="form-group">
 		    <label for="formGroupInputNom">Nom</label>
 		    <input type="text" class="form-control" id="formGroupInputNom" placeholder="Nom" name="lastname">
@@ -67,8 +89,8 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary" name="btnsubmit">Enregister contact</button>
       </div>
     </div>
   </div>
@@ -81,23 +103,37 @@
 
 <body>
 
-<div class="row">
-	<?php foreach ($sth as $data): ?>
-  <div class="col-sm-10">
-  
- <div class="card" style="min-width:20%; min-height: 20%;  margin: 10px 10px 10px 10px">
-  <div class="card-header"><?= $data['firstname']?></div>
-  <div class="card-body">
-      <h5 class="card-title"><?= $data['firstname']?> <?= $data['lastname']?></h5>
-      <p class="card-text"><?= $data ['mail']?></p>
-      <p class="card-text"><?=$data ['phone']?></p>
-
-      <?php endforeach; ?>
-  </div>
-</div>
-</div></div>
-</body> 
 <?php
+include_once("controler.php");
+$sql = "SELECT firstname, lastname, mail, phone FROM contacts ORDER BY lastname";
+$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+while( $record = mysqli_fetch_assoc($resultset) ) {
+?>
 
-require 'controler.php';
-   ?>
+
+
+
+ 
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9">
+    <div class="card">
+  <div class="card-body">
+      <h5 class="card-title"><?php echo $record['firstname']?> <?php echo $record['lastname']?></h5>
+      <p class="card-text"><?php echo $record ['mail']?></p>
+      <p class="card-text"><?php echo $record['phone']?></p>
+
+     
+
+
+</div>
+  </div>
+  </div> 
+</div>
+</div>
+<?php } ?>
+
+
+
+</body> 
