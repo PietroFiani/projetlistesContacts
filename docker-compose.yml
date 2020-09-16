@@ -12,7 +12,10 @@ services:
             - "127.0.0.1:80:80"
 
     web-php:
-        image: php:fpm-alpine
+        build: 
+            context: ./docker-web/www/
+            dockerfile: Dockerfile
+        # image: php:fpm-alpine
         container_name: web-php
         volumes:
             - "./docker-web/www:/script:ro"
@@ -42,13 +45,8 @@ services:
         restart: always
         ports: 
             - 8080:80
-        networks:
-            - app-network
 
 #Docker Networks
-networks:
-  app-network:
-    driver: bridge
 
 volumes: 
     dbdata: 
