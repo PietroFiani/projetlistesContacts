@@ -1,19 +1,15 @@
 <?php
-$bdd = new PDO('mysql:host=mySql;dbname=testcontact;charset=utf8', 'root', 'pepito');
+// $bdd = new PDO('mysql:host=mysql;dbname=testcontact;charset=utf8', 'root', 'pepito');
 
+$dbh = new PDO('mysql:host=mysql;dbname=testcontact', 'root', 'pepito');
+// utiliser la connexion ici
+$sth = $dbh->query('SELECT user_mail FROM users ORDER BY user_mail');
 
+while ($data=$sth->fetch()) 
+{   ?>
+    <h1>c bon (enfin presque)<?php echo $data['user_mail']?></h1>
+    <?php
+}
 
-$sql = "SELECT firstname FROM users";
-$result = $bdd->query($sql);  #les problemes
-
-// if ($result->num_rows > 0) {
-// 	// output data of each row
-// 	while($row = $result->fetch_assoc()) {
-// 		echo $row['name']."&lt;br>";
-// 	}
-// } else {
-// 	echo "0 results";
-// }
-// $bdd->close();
-
+$sth->closeCursor();
 ?>
