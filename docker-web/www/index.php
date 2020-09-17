@@ -46,7 +46,7 @@
       <div class="modal-body">
 
 
-      	<form method="post" action="controler.php">
+      	<form method="post" action="post_contact.php">
           <?php 
             if(!empty($error_message)){
             ?>
