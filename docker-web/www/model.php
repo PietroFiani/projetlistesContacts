@@ -67,4 +67,35 @@ echo 'Le contact a bien été ajouté !';
 /*      $req->execute()
 /*    )); 
 /*}
+<<<<<<< Updated upstream
 /*?> */
+=======
+/*?> */
+$servername = "mysql";
+$username = "root";
+$password = "pepito";
+$dbname = "testcontact";
+
+function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
+{
+	try
+	{
+	    $db = new PDO('mysql:host= $servername; dbname= $dbname;charset=utf8', '$username', '$username');
+	}
+	catch(Exception $e)
+	{
+	    die('Erreur : '.$e->getMessage());
+	}
+
+	$req = $db->exec('UPDATE contacts SET(`firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :$lastname, $mail, $phone, $prop_mail) WHERE');
+    $req->execute(array(
+	'firstname ' => $firstname,
+	'lastname' => $lastname,
+	'mail' => $mail,
+    'phone' => $phone,
+	'prop_mail' => $prop_mail,
+	));
+	
+echo 'Le contact a bien été mis à jour !';
+}
+>>>>>>> Stashed changes
