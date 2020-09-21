@@ -41,8 +41,8 @@ function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
 {
 	$db = dbconnect(); 
 
-	$req = $db->exec('UPDATE contacts SET(`firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :$lastname, $mail, $phone, $prop_mail) WHERE');
-    $req->execute(array(
+	$req = $db->exec('UPDATE contacts SET prop_mail = $prop_mail WHERE firstname = );
+    $req -> execute(array(
 	'firstname ' => $firstname,
 	'lastname' => $lastname,
 	'mail' => $mail,
@@ -51,4 +51,13 @@ function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
 	));
 	
 echo 'Le contact a bien été mis à jour !';
+}
+
+function deletecontact()
+{
+	$db=dbconnect(); 
+	
+  $req = $db->prepare('DELETE FROM contacts WHERE firstname=$firstname lastname=$lastname'); 
+      $req->execute()
+	)); 
 }
