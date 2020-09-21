@@ -3,7 +3,7 @@ function dbconnect()
 {
 	try
 	{
-		$db = new PDO('mysql:host= $servername; dbname= $dbname;charset=utf8', '$username', '$username');
+		$db = new PDO('mysql:host=mysql; dbname=testcontact; charset=utf8', 'root', 'pepito');
 		return $db; 
 	}
 	catch(Exception $e)
@@ -21,18 +21,15 @@ function getinfos()
 	return $req;
 }
 
-function insertcontact($firstname, $lastname,$mail,$phone,$prop_mail)
+function insertcontact($firstname)
 {
     $db = dbconnect(); 
 
-	$req = $db->prepare('INSERT INTO contacts (`id`, `firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :lastname, :mail, :phone, :prop_mail)');
-    $req->execute(array(
-	'firstname ' => $firstname,
-	'lastname' => $lastname,
-	'mail' => $mail,
-    'phone' => $phone,
-	'prop_mail' => $prop_mail,
-	));
+	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, 
+		'$firstname', 'azerazer', 'azerazer', 'azerazera')");
+
+	
+
 	
 echo 'Le contact a bien été ajouté !';
 }
