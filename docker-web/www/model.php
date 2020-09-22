@@ -16,28 +16,32 @@ function getinfos()
 {
 	$db = dbconnect(); 
 
-	$req = $db->query('SELECT firstname,lastname,mail,phone FROM contacts)');
+	$infos = $db->query('SELECT firstname,lastname,mail,phone FROM contacts');
 
-	return $req;
+	return $infos;
 }
 
-function insertcontact($firstname)
+function insertcontact($firstname, $lastname, $mail, $phone)
 {
     $db = dbconnect(); 
 
-	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, 
-		'$firstname', 'azerazer', 'azerazer', 'azerazera')");
+	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone')");
 
-	
 
-	
+//$content = file_get_contents('./../img/etchebest_beau_ca.gif');
+//header('Content-Type: image/gif');
+//echo $content;	
+
 echo 'Le contact a bien été ajouté !';
 }
 
-function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
+function updatecontact($firstname,$lastname,$mail,$phone)
 {
 	$db = dbconnect(); 
 
+	$req = $db->exec("UPDATE `contacts` SET  `firstname`, `lastname`, `mail`, `phone` WHERE `contacts`.`id` = 39");
+
+/*
 	$req = $db->exec('UPDATE contacts SET(`firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :$lastname, $mail, $phone, $prop_mail) WHERE');
     $req->execute(array(
 	'firstname ' => $firstname,
@@ -45,7 +49,7 @@ function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
 	'mail' => $mail,
     'phone' => $phone,
 	'prop_mail' => $prop_mail,
-	));
+	));*/
 	
 echo 'Le contact a bien été mis à jour !';
 }
