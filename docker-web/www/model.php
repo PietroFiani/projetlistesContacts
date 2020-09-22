@@ -3,7 +3,7 @@ function dbconnect()
 {
 	try
 	{
-		$db = new PDO('mysql:host= $servername; dbname= $dbname;charset=utf8', '$username', '$username');
+		$db = new PDO('mysql:host=mysql; dbname=testcontact; charset=utf8', 'root', 'pepito');
 		return $db; 
 	}
 	catch(Exception $e)
@@ -16,39 +16,45 @@ function getinfos()
 {
 	$db = dbconnect(); 
 
-	$req = $db->query('SELECT firstname,lastname,mail,phone FROM contacts)');
+	$infos = $db->query('SELECT firstname,lastname,mail,phone FROM contacts');
 
-	return $req;
+	return $infos;
 }
 
-function insertcontact($firstname, $lastname,$mail,$phone,$prop_mail)
+function insertcontact($firstname, $lastname, $mail, $phone)
 {
     $db = dbconnect(); 
 
-	$req = $db->prepare('INSERT INTO contacts (`id`, `firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :lastname, :mail, :phone, :prop_mail)');
-    $req->execute(array(
-	'firstname ' => $firstname,
-	'lastname' => $lastname,
-	'mail' => $mail,
-    'phone' => $phone,
-	'prop_mail' => $prop_mail,
-	));
-	
+	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone')");
+
+
+//$content = file_get_contents('./../img/etchebest_beau_ca.gif');
+//header('Content-Type: image/gif');
+//echo $content;	
+
 echo 'Le contact a bien été ajouté !';
 }
 
-function updatecontact($firstname,$lastname,$mail,$phone,$prop_mail)
+function updatecontact($firstname,$lastname,$mail,$phone)
 {
 	$db = dbconnect(); 
 
+<<<<<<< HEAD
 	$req = $db->exec('UPDATE contacts SET prop_mail = $prop_mail WHERE firstname = );
     $req -> execute(array(
+=======
+	$req = $db->exec("UPDATE `contacts` SET  `firstname`, `lastname`, `mail`, `phone` WHERE `contacts`.`id` = 39");
+
+/*
+	$req = $db->exec('UPDATE contacts SET(`firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :$lastname, $mail, $phone, $prop_mail) WHERE');
+    $req->execute(array(
+>>>>>>> Backend&requestsetup
 	'firstname ' => $firstname,
 	'lastname' => $lastname,
 	'mail' => $mail,
     'phone' => $phone,
 	'prop_mail' => $prop_mail,
-	));
+	));*/
 	
 echo 'Le contact a bien été mis à jour !';
 }

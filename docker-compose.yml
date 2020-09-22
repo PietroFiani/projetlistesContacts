@@ -44,7 +44,7 @@ services:
             - PMA_ARBITRARY=1
         restart: always
         ports: 
-            - 8080:88
+            - 8080:80 
 
 #Docker Networks
 
