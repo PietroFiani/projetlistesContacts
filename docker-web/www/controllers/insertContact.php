@@ -1,12 +1,12 @@
 <?php
 
-require('model.php'); 
+require('../model.php'); 
 
 $firstname=$_POST['firstname'];
 $lastname=$_POST['lastname'];
 $mail=$_POST['mail'];
 $phone=$_POST['phone'];
 
-insertcontact($firstname,$lastname, $mail, $phone );
+insertcontact('mdsssr','mssdr', 'losssl', 'lossl');
 
 ?>
