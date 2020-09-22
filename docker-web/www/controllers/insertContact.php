@@ -7,6 +7,6 @@ $lastname=$_POST['lastname'];
 $mail=$_POST['mail'];
 $phone=$_POST['phone'];
 
-insertcontact('mdsssr','mssdr', 'losssl', 'lossl');
+insertcontact($firstname,$lastname, $mail, $phone);
 
 ?>

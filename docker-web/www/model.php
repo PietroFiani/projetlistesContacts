@@ -40,6 +40,5 @@ function updatecontact($firstname, $lastname, $mail, $phone, $id)
 	$db = dbconnect(); 
 
 	$req = $db->exec("UPDATE contacts SET firstname = $firstname, lastname = $lastname, mail = $mail, phone = $phone WHERE id = $id ");
-	
-echo 'Le contact a bien été mis à jour !'; 
+	 
 }

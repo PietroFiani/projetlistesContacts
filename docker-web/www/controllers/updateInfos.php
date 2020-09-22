@@ -7,6 +7,7 @@ $lastname=$_POST['lastname'];
 $mail=$_POST['mail'];
 $phone=$_POST['phone'];
 
-updatecontact('rata', 'ratatat', 'ratatat', 'ratatat' , 7);
+updatecontact($firstname,$lastname ,$mail ,$phone , 7);
 
+header('Location : index.php'); 
 ?>

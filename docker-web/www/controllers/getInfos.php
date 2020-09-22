@@ -1,6 +1,6 @@
 <?php
 
-require('../model.php'); 
+require('./model.php'); 
 $infos = getinfos();
 
 ?>

@@ -28,12 +28,11 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
-    <!-- Button trigger modal -->
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalForm">
   Ajouter un contact
 </button>
 
-<!-- Modal -->
 <div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="ModalLabelFrom" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -46,29 +45,8 @@
       <div class="modal-body">
 
 
-      	<form method="post" action="post_contact.php">
-          <?php 
-            if(!empty($error_message)){
-            ?>
-            <div class="alert alert-danger">
-              <strong>Error!</strong> <?= $error_message ?>
-            </div>
-
-            <?php
-            }
-            ?>
-
-            <?php 
-            // Display Success message
-            if(!empty($success_message)){
-            ?>
-            <div class="alert alert-success">
-              <strong>Success!</strong> <?= $success_message ?>
-            </div>
-
-            <?php
-            }
-            ?>
+      	<form method="post" action="./controllers/insertContact.php">
+      
 		  <div class="form-group">
 		    <label for="formGroupInputNom">Nom</label>
 		    <input type="text" class="form-control" id="formGroupInputNom" placeholder="Nom" name="lastname">
@@ -85,13 +63,15 @@
 		    <label for="formGroupInputTel">Téléphone</label>
 		    <input type="text" class="form-control" id="formGroupInputTel" placeholder="Téléphone" name="phone">
 		  </div>
+
+           <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit">Enregister contact</button>
+      </div>
 		</form>
         
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="submit" class="btn btn-primary" name="btnsubmit">Enregister contact</button>
-      </div>
+ 
     </div>
   </div>
 </div>
@@ -103,36 +83,76 @@
 
 <body>
 
-<?php
-include_once("controler.php");
-$sql = "SELECT firstname, lastname, mail, phone FROM contacts ORDER BY lastname";
-$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-while( $record = mysqli_fetch_assoc($resultset) ) {
-?>
 
+  <?php include_once('./controllers/getInfos.php'); ?>
 
-
-
- 
 
 <div class="container-fluid">
   <div class="row">
+    <?php foreach ($infos as $info): ?>
     <div class="col-sm-9">
     <div class="card">
   <div class="card-body">
-      <h5 class="card-title"><?php echo $record['firstname']?> <?php echo $record['lastname']?></h5>
-      <p class="card-text"><?php echo $record ['mail']?></p>
-      <p class="card-text"><?php echo $record['phone']?></p>
+      <h5 class="card-title"><?php echo $info['firstname']?> <?php echo $info['lastname']?></h5>
+      <p class="card-text"><?php echo $info ['mail']?></p>
+      <p class="card-text"><?php echo $info['phone']?></p>
 
-     
 
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalForm2">
+   Modifier le contact
+</button>
+
+<div class="modal fade" id="ModalForm2" tabindex="-1" role="dialog" aria-labelledby="ModalLabelFrom" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelFrom">Nouveau Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <form method="post" action="updateInfos.php">
+      
+      <div class="form-group">
+        <label for="formGroupInputNom">Nom</label>
+        <input type="text" class="form-control" id="formGroupInputNom" placeholder="Nom" name="lastname">
+      </div>
+      <div class="form-group">
+        <label for="formGroupInputPrenom">Prénom</label>
+        <input type="text" class="form-control" id="formGroupInputPrenom" placeholder="Prénom" name="firstname">
+      </div>    
+      <div class="form-group">
+        <label for="formGroupInputMail">Email</label>
+        <input type="text" class="form-control" id="formGroupInputMail" placeholder="Email"name="mail">
+      </div>
+      <div class="form-group">
+        <label for="formGroupInputTel">Téléphone</label>
+        <input type="text" class="form-control" id="formGroupInputTel" placeholder="Téléphone" name="phone">
+      </div>
+
+           <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit">Enregister contact</button>
+      </div>
+    </form>
+        
+      </div>
+ 
+    </div>
+  </div>
+</div>
 
 </div>
   </div>
-  </div> 
+  </div>
+    <?php endforeach;?> 
 </div>
 </div>
-<?php } ?>
+
 
 
 
