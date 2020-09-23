@@ -21,24 +21,46 @@ function getinfos()
 	return $infos;
 }
 
-function insertcontact($firstname, $lastname, $mail, $phone)
+function insertcontact($firstname, $lastname, $mail, $phone) //ok
 {
     $db = dbconnect(); 
 
-	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone')");
-
-
-//$content = file_get_contents('./../img/etchebest_beau_ca.gif');
-//header('Content-Type: image/gif');
-//echo $content;	
+	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone')");	
 
 echo 'Le contact a bien été ajouté !';
 }
 
-function updatecontact($firstname, $lastname, $mail, $phone, $id)
+function updatecontact($firstname, $lastname,$mail,$phone, $id) //ok
 {
 	$db = dbconnect(); 
 
-	$req = $db->exec("UPDATE contacts SET firstname = $firstname, lastname = $lastname, mail = $mail, phone = $phone WHERE id = $id ");
-	 
+    $req = $db->prepare('UPDATE contacts SET nom = :nom, prenom = :prenom, mail=:mail, phone=:phone WHERE id = :id ');
+    $req->execute(array(
+ 
+        'id' => $id,
+  
+        'nom' => $firstname,
+  
+		'prenom' => $lastname,
+		
+		'mail' => $mail,
+
+		'phone' => $phone
+	)); 
+     
+    echo 'contact mis à jour'; 
+}
+
+function deletecontact($nom,$prenom,$prop_mail) //ok
+{
+    $db = dbconnect(); 
+
+    $req = $db->prepare('DELETE FROM contacts WHERE nom = :nom AND prenom = :prenom AND prop = :prop_mail'); 
+    $req->execute(array(
+        'prenom' => $prenom, 
+		'nom' => $nom,
+		'prop_mail' => $prop_mail
+	)); 
+    
+    echo 'contact supprimé !'; 
 }
