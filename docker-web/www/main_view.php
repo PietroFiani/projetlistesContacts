@@ -99,9 +99,13 @@
 
 
 
+
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalForm2">
    Modifier le contact
 </button>
+
+
+
 
 <div class="modal fade" id="ModalForm2" tabindex="-1" role="dialog" aria-labelledby="ModalLabelFrom" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -128,7 +132,8 @@
       <div class="form-group">
         <label for="formGroupInputMail">Email</label>
         <input type="text" class="form-control" id="formGroupInputMail" placeholder="Email"name="mail">
-      </div>
+      </div>   
+
       <div class="form-group">
         <label for="formGroupInputTel">Téléphone</label>
         <input type="text" class="form-control" id="formGroupInputTel" placeholder="Téléphone" name="phone">
@@ -145,6 +150,13 @@
     </div>
   </div>
 </div>
+
+<form action='./controllers/deleteContacts.php' method='post'>
+  <input type="text" name="id" style="display: none"  value="<?php $info['id'] ?>">
+<button  type="submit"> Supprimer contact</button>
+</form>
+
+
 
 </div>
   </div>
