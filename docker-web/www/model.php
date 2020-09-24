@@ -35,24 +35,58 @@ function insertcontact($firstname, $lastname, $mail, $phone)
 echo 'Le contact a bien été ajouté !';
 }
 
-
-function updatecontact($firstname, $lastname,$mail,$phone, $id) //ok
+/*
+function updatecontact($firstname,$lastname,$mail,$phone)
 {
 	$db = dbconnect(); 
 
-    $req = $db->prepare('UPDATE contacts SET nom = :nom, prenom = :prenom, mail=:mail, phone=:phone WHERE id = :id ');
+	$req = $db->exec("UPDATE `contacts` SET  `firstname`, `lastname`, `mail`, `phone` WHERE `contacts`.`id` = 1");
+
+/*
+	$req = $db->exec('UPDATE contacts SET(`firstname`, `lastname`, `mail`, `phone`, `prop_mail`) VALUES (NULL, :firstname, :$lastname, $mail, $phone, $prop_mail) WHERE');
+    $req->execute(array(
+	'firstname ' => $firstname,
+	'lastname' => $lastname,
+	'mail' => $mail,
+    'phone' => $phone,
+	'prop_mail' => $prop_mail,
+	));
+
+
+echo 'Le contact a bien été mis à jour !';
+}*/
+
+function updatecontact($firstname, $lastname,$mail,$phone, $id) //ok
+{
+    $db = dbconnect(); 
+
+    /*$req = $db->prepare('UPDATE contacts SET nom = :nom, prenom = :prenom, mail=:mail, phone=:phone WHERE id = :id ');
     $req->execute(array(
  
         'id' => $id,
   
         'nom' => $firstname,
   
-		'prenom' => $lastname,
-		
-		'mail' => $mail,
+        'prenom' => $lastname,
+        
+        'mail' => $mail,
 
-		'phone' => $phone
-	)); 
-     
+        'phone' => $phone
+	));*/ 
+	
+
+	$sql = "UPDATE `contacts`   
+	SET `firstname` = :firstname,
+	  `lastname` = :lastname,
+	  `mail` = :mail,
+	  `phone`= :phone
+	 WHERE `id`= :id
+	";
+
+
+$db = $pdo->prepare($sql);
+
+
+
     echo 'contact mis à jour'; 
 }

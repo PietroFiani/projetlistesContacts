@@ -101,7 +101,7 @@
             <p class="card-text"><?php echo $info['phone']?></p>
             
             <button type="button" class="btn btn-primary">
-              <a href='updateForm.php?id=<?php echo $info['id']; ?>'>Modifier le contact
+              <a href='updateForm.php?id=<?php echo $info['id']; ?>'>Modifier le contact</a>
             </button>
 
           </div>
