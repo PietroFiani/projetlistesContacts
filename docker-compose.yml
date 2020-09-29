@@ -9,7 +9,7 @@ services:
             - "./docker-web/log:/var/log/nginx"
             - "./docker-web/nginx.conf:/etc/nginx/nginx.conf:ro"
         ports:
-            - "127.0.0.1:81:80"
+            - "127.0.0.1:80:80"
 
     web-php:
         build: 
@@ -28,7 +28,7 @@ services:
         restart: always
         environment: 
             MYSQL_ROOT_PASSWORD: pepito
-            MYSQL_DATABASE: test_db 
+            MYSQL_DATABASE: testcontact
             MYSQL_USER: pepito
             MYSQL_PASSWORD: pepito
         ports:
@@ -44,7 +44,7 @@ services:
             - PMA_ARBITRARY=1
         restart: always
         ports: 
-            - 8080:80 
+            - 8080:80
 
 #Docker Networks
 
