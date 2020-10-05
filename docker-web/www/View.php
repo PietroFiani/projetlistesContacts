@@ -26,6 +26,17 @@
                 <button  type="submit"> inserer contact</button>
             </form>
         </div>
+
+        <div class="research-contact-container">
+            <form action="./controllers/researchContact.php" method="post">
+                <input type="search" name="terms">
+                <button type="submit"> rechercher </button>
+            </form>
+        </div>
+    
+    </div>
+
+
         
 
     <?php include_once('./controllers/getInfos.php'); ?>

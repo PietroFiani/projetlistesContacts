@@ -16,7 +16,7 @@ function getinfos()
 {
 	$db = dbconnect(); 
 
-	$infos = $db->query('SELECT id,firstname,lastname,mail,phone FROM contacts');
+	$infos = $db->query('SELECT id,firstname,lastname,mail,phone FROM contacts ORDER BY lastname ASC');
 
 	return $infos;
 }
@@ -50,21 +50,6 @@ function updatecontact($firstname, $lastname,$mail,$phone, $id) //ok
 }
 
 
-
-/*function deletecontact($lastname,$firstname,$prop_mail) //ok
-{
-    $db = dbconnect(); 
-
-    $req = $db->prepare('DELETE FROM `contacts` WHERE lastname = :lastname AND firstname = :firstname AND prop_mail = :prop_mail'); 
-    $req->execute(array(
-        'lastname' => $lastname, 
-		'firstname' => $firstname,
-		'prop_mail' => $prop_mail
-	)); 
-    
-    echo 'contact supprimé !'; 
-}*/
-
 function deletecontact($id) //ok
 {
     $db = dbconnect(); 
@@ -75,3 +60,13 @@ function deletecontact($id) //ok
     )); 
 }
 
+function researchcontact($input){
+	$db = dbconnect(); 
+
+	$infos = $db->prepare('SELECT id,firstname,lastname,mail,phone FROM contacts WHERE firstname LIKE "%:prenom%" '); 
+	$infos->execute(array(
+		'prenom' => $input
+	)); 
+
+	return $infos;
+}
