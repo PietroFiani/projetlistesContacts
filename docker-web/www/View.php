@@ -33,7 +33,7 @@
     <div class="main section-nav">
         <nav class="navbar navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="#">Liste de Contact</a>
+                <a class="navbar-brand" href="#">Kontactak</a>
                 <button class="btn btn-light my-2 my-sm-0" data-toggle="modal" data-target="#modalAdd">Ajouter</button>
             </div>
         </nav>
@@ -44,13 +44,13 @@
                         <div class="modal-body">
                             <form class="form-" action="./controllers/insertContact.php" method="post">
                             <label>Prénom </label>
-                                <input type="text" class="form-control" name="firstname">
+                                <input type="text" class="form-control" name="firstname" required>
                             <label>Nom</label>
-                                <input type="text" class="form-control" name="lastname">
+                                <input type="text" class="form-control" name="lastname" required>
                             <label>Email</label>
-                                <input type="email" class="form-control" name="mail">
+                                <input type="email" class="form-control" name="mail" required>
                             <label>Téléphone</label>
-                                <input type="tel" name="tel" class="form-control">
+                                <input type="tel" name="tel" class="form-control" required>
                                 <button type="submit" class="btn btn-primary" style="margin-top:20px;">Inserer contact</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top:20px;"> Annuler </button>
                             </form>
@@ -77,7 +77,7 @@
         <?php foreach ($infos as $info): ?>
         <div class="col-sm">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="padding-bottom:10px;">
 
                     <h5 class="card-text"><?php echo $info['firstname']?></h5>
                     <h5 class="card-text"><?php echo $info['lastname']?></h5>
@@ -98,13 +98,13 @@
                     <div class="collapse" id="collapseUpdateContact">
                         <form class="form-update" action="./controllers/updateInfos.php" method="post">
                             <label for="inputPrenom" style="margin-top:20px;">Prénom</label>
-                            <input type="text" class="form-control" name="firstname">
+                            <input type="text" class="form-control" name="firstname" required>
                             <label for="inputNom">Nom</label>
-                            <input type="text" class="form-control" name="lastname">
+                            <input type="text" class="form-control" name="lastname" required>
                             <label for="inputMail">Mail</label>
-                            <input type="text" class="form-control" name="mail">
+                            <input type="text" class="form-control" name="mail" required>
                             <label for="inputPhone">Téléphone</label>
-                            <input type="text" class="form-control" name="phone">
+                            <input type="text" class="form-control" name="phone" required>
                             <input type="hidden" name="id" value="<?php echo $info['id'];?>" />
                             <button type="submit" class="btn btn-primary" style="margin-top:20px;"> Mettre à jour
                                 contact</button>
