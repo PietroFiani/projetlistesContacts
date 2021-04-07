@@ -1,3 +1,2 @@
 # projetlistesContacts
-Projet LP DW
-A rendre pour le 01/12 max
+Projet LP DW Docker, groupe thibaut pelinski, pietro fiani et Tony Oseil
