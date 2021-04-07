@@ -74,7 +74,7 @@
 
         <?php include_once('./controllers/getInfos.php'); ?>
 
-        <?php foreach ($infos as $info): ?>
+        <?php foreach ($info as $info): ?>
         <div class="col-sm">
             <div class="card">
                 <div class="card-body" style="padding-bottom:10px;">

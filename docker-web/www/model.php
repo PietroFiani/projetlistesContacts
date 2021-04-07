@@ -3,7 +3,7 @@ function dbconnect()
 {
 	try
 	{
-		$db = new PDO('mysql:host=mysql; dbname=testcontact; charset=utf8', 'root', 'pepito');
+		$db = new PDO('mysql:host=mysql; dbname=testcontact; charset=utf8', 'pepito', 'pepito');
 		return $db; 
 	}
 	catch(Exception $e)
