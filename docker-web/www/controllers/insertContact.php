@@ -7,7 +7,7 @@ $lastname=$_POST['lastname'];
 $mail=$_POST['mail'];
 $phone=$_POST['phone']; 
 
-insertcontact($firstname,$lastname, $phone, $mail,'michel@mail.mail');
+insertcontact($firstname,$lastname, $mail, $phone,'michel@mail.mail');
 
-header('Location: ../View.php')
+header('Location: ../index.php')
 ?>

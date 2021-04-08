@@ -21,11 +21,11 @@ function getinfos()
 	return $infos;
 }
 
-function insertcontact($firstname, $lastname, $mail, $phone, $prop_mail) //ok
+function insertcontact($firstname, $lastname, $mail, $phone) //ok
 {
     $db = dbconnect(); 
 
-	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`,`prop_mail`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone','$prop_mail')");	
+	$req = $db->exec("INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `mail`, `phone`) VALUES (NULL, '$firstname', '$lastname', '$mail', '$phone')");	
 
 }
 

@@ -9,5 +9,5 @@ $phone= $_POST['phone'];
 $id= $_POST['id'];
  
 updatecontact($firstname,$lastname ,$mail ,$phone , $id);
-header('Location: ../View.php'); 
+header('Location: ../index.php'); 
 ?>

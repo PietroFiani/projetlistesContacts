@@ -7,5 +7,5 @@ $id = $_POST['id'];
 
 deletecontact($id);
 
-header('Location: ../View.php')
+header('Location: ../index.php')
 ?>

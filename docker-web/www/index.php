@@ -50,8 +50,8 @@
                             <label>Email</label>
                                 <input type="email" class="form-control" name="mail" required>
                             <label>Téléphone</label>
-                                <input type="tel" name="tel" class="form-control" required>
-                                <button type="submit" class="btn btn-primary" style="margin-top:20px;">Inserer contact</button>
+                                <input type="tel" name="phone" class="form-control" required>
+                                <button type="submit" class="btn btn-primary insert-contact-btn" style="margin-top:20px;">Inserer contact</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top:20px;"> Annuler </button>
                             </form>
                         </div>
@@ -74,7 +74,7 @@
 
         <?php include_once('./controllers/getInfos.php'); ?>
 
-        <?php foreach ($info as $info): ?>
+        <?php foreach ($infos as $info): ?>
         <div class="col-sm">
             <div class="card">
                 <div class="card-body" style="padding-bottom:10px;">
@@ -98,16 +98,15 @@
                     <div class="collapse" id="collapseUpdateContact">
                         <form class="form-update" action="./controllers/updateInfos.php" method="post">
                             <label for="inputPrenom" style="margin-top:20px;">Prénom</label>
-                            <input type="text" class="form-control" name="firstname" required>
+                            <input type="text" class="form-control" name="firstname" value="<?php echo $info['firstname'];?>" required>
                             <label for="inputNom">Nom</label>
-                            <input type="text" class="form-control" name="lastname" required>
+                            <input type="text" class="form-control" name="lastname" value="<?php echo $info['lastname'];?>" required>
                             <label for="inputMail">Mail</label>
-                            <input type="text" class="form-control" name="mail" required>
+                            <input type="text" class="form-control" name="mail" value="<?php echo $info['mail'];?>" required>
                             <label for="inputPhone">Téléphone</label>
-                            <input type="text" class="form-control" name="phone" required>
+                            <input type="text" class="form-control" name="phone"  value="<?php echo $info['phone'];?>" required>
                             <input type="hidden" name="id" value="<?php echo $info['id'];?>" />
-                            <button type="submit" class="btn btn-primary" style="margin-top:20px;"> Mettre à jour
-                                contact</button>
+                            <button type="submit" class="btn btn-primary" style="margin-top:20px;"> Mettre à jour le contact</button>
                         </form>
                     </div>
                 </div>
@@ -116,10 +115,6 @@
 
         <?php endforeach; ?>
     </div>
-
-
-
-    <script src="index.js"></script>
-</body>
+    </body>
 
 </html>
