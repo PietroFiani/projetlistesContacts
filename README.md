@@ -8,4 +8,5 @@ Projet LP DW Docker, groupe Thibaut Pelinski, Pietro Fiani et Tony Oseil
     - Nom de la base : testcontact
     - User : pepito
     - Password : pepito
-5. La page d'accueil est accesible sur localhost:80
+5.Une table exemple `testcontact.sql` est disponible pour être importée
+6. La page d'accueil est accesible sur localhost:80
