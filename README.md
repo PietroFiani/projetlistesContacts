@@ -1,5 +1,6 @@
 # projetlistesContacts
 Projet LP DW Docker, groupe Thibaut Pelinski, Pietro Fiani et Tony Oseil
+Exercice d'apprentissage sur Docker
 
 1. Cloner le repo
 2. Avoir Docker d'installé
